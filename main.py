@@ -57,38 +57,7 @@ class CheckingAccount(Account,Currentbalance):
             writer.writerows(data)
             file.truncate()
 
-     # overriding withdraw method
-    # def withdraw(self):
-    #     self.ins_customer.user_data.append(self.balance)
-    #     with open('checking.csv', 'r+', newline='') as file:
-    #         customer_data = csv.reader(file)
-    #         data = list(customer_data)
-    #         for row in data:
-    #             if self.username in row and self.password in row:
-    #                 balance = int(row[7])
-    #                 self.balance = balance
-    #                 try:
-    #                     self.drawout = int(input("How much money do you want to withdraw?: "))
-    #                     if self.drawout <= 0:
-    #                         raise ValueError("Invalid withdrawal amount. Please enter a positive number.")
-    #
-    #                     if self.balance < self.drawout:
-    #                         choose = input("Your balance is less than your withdrawal amount which means that"
-    #                                                " you're going to be charged with an overdraft fee.\nDo you wish to proceed? (y/N): ").lower()
-    #                         if choose != "y":
-    #                             print('Withdrawal canceled.')
-    #                             return
-    #                         self.balance -= self.drawout
-    #                         self.balance -= self.overdraft_fee
-    #                     else:
-    #                         self.balance -= self.drawout
-    #
-    #                     row[7] = str(self.balance)
-    #                     break
-    #
-    #                 except ValueError as e:
-    #                     print(e)
-    #                     return
+   
     def withdraw(self):
 
         with open('checking.csv', 'r+', newline='') as file:
@@ -116,18 +85,7 @@ class CheckingAccount(Account,Currentbalance):
 
                             except ValueError as error:
                                 print(str(error))
-                            # if choose == "y":
-                            #     self.balance -= self.drawout
-                            #     self.balance -= self.overdraft_fee
-                            #     print(self.balance)
-                            #     row[8] = str(self.balance)
-                            #     print(f"your current balance is :{row[8]}")
-                            #     break
-                            # elif choose == "n":
-                            #     print("THANKYOU :0")
-                            # else:
-                            #     print("this transaction cannot take place because you exceded credit limit")
-                            #     break
+                           
 
 
                     else:
@@ -140,54 +98,13 @@ class CheckingAccount(Account,Currentbalance):
 
                         break
 
-        # self.ins_customer.user_data.append(self.balance)
-        # with open('checking.csv', 'r+', newline='') as file:
-        #     customer_data = csv.reader(file)
-        #     data = list(customer_data)
-        #     for row in data:
-        #         if self.username in row and self.password in row:
-        #             self.drawout = int(input("How much money do you want to withdraw?: "))
-        #             balance = int(row[7])
-        #             self.balance = balance
-        #             self.balance -= self.drawout
-        #             row[7] = str(self.balance)
-        #             break
+     
             file.seek(0)
             writer = csv.writer(file)
             writer.writerows(data)
             file.truncate()
 
-        # with open('checking.csv', 'r+') as file:
-        #     customer_data = csv.reader(file)
-        #     data = list(customer_data)
-        #     for row in data:
-        #         if self.username in row and self.password in row:
-        #             balance = int(row[7])
-        #             self.balance = balance
-        #             self.draw_out = int(input("How much money do you want to withdraw?: "))
-        #             if self.balance > self.draw_out:
-        #                 self.balance -= self.draw_out
-        #             elif self.balance < self.draw_out:
-        #                 ask = input(f"Your balance is less than your withdrawal amount.\n"
-        #                             f"If you make this transaction, you will be charged with an overdraft fee of Rs{self.overdraft_fee}.\n"
-        #                             f"Do you wish to proceed? (Y/N)").upper()
-        #                 if ask == "Y":
-        #                     self.balance -= self.draw_out
-        #                     self.balance -= self.overdraft_fee
-        #                 elif ask == "N":
-        #                     print("Thank you for your cooperation.")
-        #             elif self.balance < self.credit_limit:
-        #                 print("Transaction not allowed!\nCREDIT LIMIT EXCEEDED!")
-        #                 exit()
-        #             for row in data:
-        #                 if self.username in row and self.password in row:
-        #                     row[7] = str(self.balance)
-        #                 break
-        #
-        #     file.seek(0)
-        #     writer = csv.writer(file)
-        #     writer.writerows(data)
-        #     file.truncate()
+       
 
     def create(self):
         self.ins_customer.data()
@@ -300,20 +217,7 @@ class LoanAccount(Account,Currentbalance):
         return print(f"your current balance is:{self.balance}")
 
     def option(self):
-        # with open('loan.csv', 'r+',newline="") as file:
-        #     customer_data = csv.reader(file)
-        #     data = list(customer_data)
-        #     for row in data:
-        #         if self.username in row and self.password in row:
-        #             # principal = float(row[1])
-        #             # self.principal = principal
-        #             self.principal = int(input("how much money do you want to borrow?:"))
-        #             row[1] = str(self.principal)
-        #             break
-        #     file.seek(0)
-        #     writer = csv.writer(file)
-        #     writer.writerows(data)
-        #     file.truncate()
+        
 
         choice = input("do you want to pay installment?:").lower()
         if choice == "y":
